@@ -32,8 +32,3 @@ This repository contains example code for multiple subsystems that follow the **
     - **Elevator_Setpoint_CMD**: Moves the elevator to a specific setpoint using Motion Magic. The setpoint is defined in rotations and can be adjusted dynamically.
 
 ---
-
-## **Getting Started**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/Example-Subsystem-Code.git
