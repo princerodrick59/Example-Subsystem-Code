@@ -5,8 +5,7 @@ This repository contains example code for multiple subsystems that follow the **
 ---
 
 ## **Features**
-- **Subsystem Examples**: Includes examples for intake and arm (More to be added).
-
+- **Subsystem Examples**: Includes examples for intake, arm, and elevator (More to be added).
 ---
 
 ## **Project Structure**
@@ -16,6 +15,8 @@ This repository contains example code for multiple subsystems that follow the **
   - **Intake**:
     - **TalonFX_Rollers_WithoutSensor**: Manages the intake rollers without sensor feedback. Includes methods for intaking, outtaking, and stopping the rollers.
     - **TalonFX_Rollers_WithSensor**: Manages the intake rollers with sensor feedback. The sensor stops the rollers when an object is detected. Includes methods for intaking, outtaking, and stopping the rollers.
+  - **Elevator**:
+    - **TalonFX_Elevator**: Controls an elevator mechanism using two TalonFX motor controllers. Includes methods for moving the elevator up, down, stopping, and setting specific positions. Supports Motion Magic for precise control and includes limit switch handling.
 
 - **Commands**: Includes commands for controlling subsystems with and without sensors.
   - **Arm_Commands**:
@@ -27,3 +28,12 @@ This repository contains example code for multiple subsystems that follow the **
     - **Intake_WithSensor**:
       - **Roller_Intake_WithSensor_CMD**: Activates the intake rollers to collect game pieces. The rollers stop automatically when the sensor detects an object.
       - **Roller_Outtake_WithSensor_CMD**: Activates the intake rollers to release game pieces. This command does not rely on sensor feedback.
+  - **Elevator_Commands**:
+    - **Elevator_Setpoint_CMD**: Moves the elevator to a specific setpoint using Motion Magic. The setpoint is defined in rotations and can be adjusted dynamically.
+
+---
+
+## **Getting Started**
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-repo/Example-Subsystem-Code.git

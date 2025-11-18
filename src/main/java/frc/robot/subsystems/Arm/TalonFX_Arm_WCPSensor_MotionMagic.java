@@ -153,7 +153,7 @@ public class TalonFX_Arm_WCPSensor_MotionMagic extends SubsystemBase {
   }
 
   /**
-   * Method to run the SysId Dynamic routine - Constant Speed
+   * Method to run the SysId Quasistatic routine - Ramp Speed
    * @param direction The direction of the routine (up or down)
    * @return The command to run the routine
    */
