@@ -2,7 +2,7 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 
-package frc.robot.subsystems;
+package frc.robot.subsystems.Intake;
 
 import org.littletonrobotics.junction.AutoLogOutput;
 
@@ -15,7 +15,7 @@ import com.ctre.phoenix6.signals.NeutralModeValue;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class TalonFX_Rollers extends SubsystemBase {
+public class TalonFX_Rollers_WithoutSensor extends SubsystemBase {
   
   private TalonFX rollerMotor;
   private TalonFXConfiguration rollerConfig;
@@ -29,7 +29,7 @@ public class TalonFX_Rollers extends SubsystemBase {
    * This subsystem includes methods to intake, outtake, and stop the rollers.
    * 
    */
-  public TalonFX_Rollers() {
+  public TalonFX_Rollers_WithoutSensor() {
 
     rollerMotor = new TalonFX(10); // Replace 10 with the actual device ID
 

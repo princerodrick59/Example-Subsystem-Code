@@ -5,7 +5,7 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
-import frc.robot.subsystems.TalonFX_Rollers;
+import frc.robot.subsystems.Intake.TalonFX_Rollers_WithoutSensor;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final TalonFX_Rollers m_exampleSubsystem = new TalonFX_Rollers();
+  private final TalonFX_Rollers_WithoutSensor m_exampleSubsystem = new TalonFX_Rollers_WithoutSensor();
 
   // Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
@@ -27,7 +27,7 @@ public class RobotContainer {
 
   private void configureBindings() {
 
-    
+
   }
 
   /**
