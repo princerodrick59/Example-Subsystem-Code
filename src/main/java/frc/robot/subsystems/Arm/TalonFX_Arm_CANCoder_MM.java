@@ -30,7 +30,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 
-public class TalonFX_Arm_WCPSensor_MotionMagic extends SubsystemBase {
+public class TalonFX_Arm_CANCoder_MM extends SubsystemBase {
   /** Creates a new TalonFX_Arm_WithWCPThroughBore. */
   private TalonFX armMotor;
   private TalonFXConfiguration armConfig;
@@ -49,7 +49,8 @@ public class TalonFX_Arm_WCPSensor_MotionMagic extends SubsystemBase {
    * You will need to adjust the motor ID, encoder ID, inversion, neutral mode, PID values, motion magic parameters, feedback sensor settings, and current limits based on your specific mechanism and requirements.
    * This subsystem includes methods to pivot the arm up, pivot the arm down, stop the arm, and set the arm to a specific position using Motion Magic.
    */
-  public TalonFX_Arm_WCPSensor_MotionMagic() {
+  public TalonFX_Arm_CANCoder_MM() {
+    
     armEncoder = new CANcoder(12); // Replace 12 with the actual device ID
 
     armEncoderConfig = new CANcoderConfiguration()

@@ -4,17 +4,15 @@
 
 package frc.robot.commands.Elevator_Commands;
 
-import com.ctre.phoenix6.hardware.TalonFX;
-
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.Elevator.TalonFX_Elevator;
+import frc.robot.subsystems.Elevator.TalonFX_Elevator_DMM;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
-public class Elevator_Setpoint_CMD extends Command {
+public class Elevator_DMM_Setpoint_CMD extends Command {
   /** Creates a new Elevator_L1. */
-  TalonFX_Elevator m_elevatorSubsystem;
+  TalonFX_Elevator_DMM m_elevatorSubsystem;
   double m_elevatorSetpoint;
-  public Elevator_Setpoint_CMD(TalonFX_Elevator elevatorSubsystem, double elevatorSetpoint) {
+  public Elevator_DMM_Setpoint_CMD(TalonFX_Elevator_DMM elevatorSubsystem, double elevatorSetpoint) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_elevatorSubsystem = elevatorSubsystem;
     m_elevatorSetpoint = elevatorSetpoint;
@@ -27,6 +25,7 @@ public class Elevator_Setpoint_CMD extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_elevatorSubsystem.setElevatorMotionMagic(1200, 1200, 1200);
     m_elevatorSubsystem.setElevatorPosition(m_elevatorSetpoint);
   }
 

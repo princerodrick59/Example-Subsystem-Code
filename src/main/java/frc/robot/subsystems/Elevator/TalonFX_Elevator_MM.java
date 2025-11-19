@@ -13,8 +13,8 @@ import com.ctre.phoenix6.configs.CurrentLimitsConfigs;
 import com.ctre.phoenix6.configs.MotorOutputConfigs;
 import com.ctre.phoenix6.configs.Slot0Configs;
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.controls.DynamicMotionMagicVoltage;
 import com.ctre.phoenix6.controls.Follower;
+import com.ctre.phoenix6.controls.MotionMagicVoltage;
 import com.ctre.phoenix6.controls.VoltageOut;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.GravityTypeValue;
@@ -25,7 +25,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import edu.wpi.first.wpilibj2.command.sysid.SysIdRoutine;
 
-public class TalonFX_Elevator extends SubsystemBase {
+public class TalonFX_Elevator_MM extends SubsystemBase {
   /** Creates a new ElevatorSubsystem. */
   // Elevator Motors
   private TalonFX elevatorLeftLeaderMotor;
@@ -35,7 +35,7 @@ public class TalonFX_Elevator extends SubsystemBase {
   // Elevator Follower
   private Follower elevatorFollower;
   // Elevator Position Request
-  public DynamicMotionMagicVoltage m_elevatorPositionRequest;
+  public MotionMagicVoltage m_elevatorPositionRequest;
   // Bottom Limit
   private DigitalInput elevatorBottonLimit;
   // Voltage Request
@@ -43,10 +43,10 @@ public class TalonFX_Elevator extends SubsystemBase {
 
 
 
-  public TalonFX_Elevator() {
+  public TalonFX_Elevator_MM() {
     // Elevator Motors
-    elevatorLeftLeaderMotor = new TalonFX(15); // Replace 15 with the actual device ID
-    elevatorRightFollowerMotor = new TalonFX(16); // Replace 16 with the actual device ID
+    elevatorLeftLeaderMotor = new TalonFX(15, "DriveCANivore"); // Replace 15 with the actual device ID
+    elevatorRightFollowerMotor = new TalonFX(16, "DriveCANivore"); // Replace 16 with the actual device ID
 
     // Elevator Follower
     elevatorFollower = new Follower(15, false); // Replace 15 with the leader motor ID
@@ -77,11 +77,7 @@ public class TalonFX_Elevator extends SubsystemBase {
     elevatorRightFollowerMotor.getConfigurator().apply(elevatorConfigs);
 
     // Elevator Position Request
-    m_elevatorPositionRequest = new DynamicMotionMagicVoltage(0, 
-                                  1000, // Set cruise velocity based on mechanism requirements
-                                  1000,  // Set acceleration based on mechanism requirements
-                                  1000) // Set jerk based on mechanism requirements
-                                  .withSlot(0);
+    m_elevatorPositionRequest = new MotionMagicVoltage(0).withSlot(0);
     // Voltage Request
     m_voltageRequest = new VoltageOut(0.0);
 
@@ -119,18 +115,6 @@ public class TalonFX_Elevator extends SubsystemBase {
     public void setElevatorPosition(double height) {
       elevatorLeftLeaderMotor.setControl(m_elevatorPositionRequest.withPosition(height));
       elevatorRightFollowerMotor.setControl(elevatorFollower);
-    }
-
-    /**
-     * Method to set the motion magic parameters
-     * @param Acceleration The desired acceleration
-     * @param Velocity The desired velocity
-     * @param Jerk The desired jerk
-     */
-    public void setElevatorMotionMagic(double Acceleration, double Velocity, double Jerk) {
-      m_elevatorPositionRequest.Acceleration =  Acceleration;
-      m_elevatorPositionRequest.Velocity = Velocity;
-      m_elevatorPositionRequest.Jerk = Jerk;
     }
 
     // Defines SysID Configs

@@ -13,26 +13,23 @@ import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-public class TalonFX_Rollers_WithSensor extends SubsystemBase {
+public class TalonFX_Intake_WithoutSensor extends SubsystemBase {
   
   private TalonFX rollerMotor;
   private TalonFXConfiguration rollerConfig;
-
-  private DigitalInput rollerSensor;
 
 
   /**
    * Creates a new TalonFX_Rollers subsystem.
    * This involves the basic code for running the rollers of a motor.
-   * This subsystem does involve the implementation of a beam break sensor that is fed through a DIO Port on the RIO.
+   * This subsystem does not involve the implementation of any sensor to stop the rollers.
    * You will need to adjust the motor ID, inversion, neutral mode, and current limits based on your specific mechanism and requirements.
    * This subsystem includes methods to intake, outtake, and stop the rollers.
    * 
    */
-  public TalonFX_Rollers_WithSensor() {
+  public TalonFX_Intake_WithoutSensor() {
 
     rollerMotor = new TalonFX(10); // Replace 10 with the actual device ID
 
@@ -44,8 +41,6 @@ public class TalonFX_Rollers_WithSensor extends SubsystemBase {
                                               .withSupplyCurrentLimit(15)); //Set current limit based on mechanism requirements
 
     rollerMotor.getConfigurator().apply(rollerConfig);
-
-    rollerSensor = new DigitalInput(0); // Replace 0 with the actual DIO port number
 
   }
 
@@ -68,15 +63,7 @@ public class TalonFX_Rollers_WithSensor extends SubsystemBase {
     rollerMotor.set(0); // Stop the rollers
   }
 
-  
-  /**
-   * Method to get the state of the roller sensor
-   * @return boolean true if the sensor is triggered, false otherwise
-   */
-  @AutoLogOutput
-  public boolean getRollerSensor(){
-    return rollerSensor.get();
-  }
+
 
   /**
    * Method to get the current velocity of the rollers

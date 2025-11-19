@@ -5,19 +5,19 @@
 package frc.robot.commands.Intake_Commands.Intake_WithoutSensor;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.Intake.TalonFX_Rollers_WithoutSensor;
+import frc.robot.subsystems.Intake.TalonFX_Intake_WithoutSensor;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class Roller_Intake_CMD extends Command {
   /** Creates a new Roller_Intake_CMD. */
 
-  private TalonFX_Rollers_WithoutSensor m_rollerSubsystem;
+  private TalonFX_Intake_WithoutSensor m_rollerSubsystem;
 
   /**
    * CMD to intake rollers without sensor
    * @param rollerSubsystem
    */
-  public Roller_Intake_CMD(TalonFX_Rollers_WithoutSensor rollerSubsystem) {
+  public Roller_Intake_CMD(TalonFX_Intake_WithoutSensor rollerSubsystem) {
     m_rollerSubsystem = rollerSubsystem;
   }
 
