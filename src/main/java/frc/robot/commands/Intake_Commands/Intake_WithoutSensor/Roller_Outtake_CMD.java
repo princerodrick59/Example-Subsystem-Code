@@ -18,6 +18,7 @@ public class Roller_Outtake_CMD extends Command {
    */
   public Roller_Outtake_CMD(TalonFX_Intake_WithoutSensor rollerSubsystem) {
     m_rollerSubsystem = rollerSubsystem;
+    addRequirements(m_rollerSubsystem);
   }
 
   // Called when the command is initially scheduled.

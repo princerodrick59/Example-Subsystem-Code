@@ -16,6 +16,7 @@ public class Elevator_DMM_Setpoint_CMD extends Command {
     // Use addRequirements() here to declare subsystem dependencies.
     m_elevatorSubsystem = elevatorSubsystem;
     m_elevatorSetpoint = elevatorSetpoint;
+    addRequirements(m_elevatorSubsystem);
   }
 
   // Called when the command is initially scheduled.
