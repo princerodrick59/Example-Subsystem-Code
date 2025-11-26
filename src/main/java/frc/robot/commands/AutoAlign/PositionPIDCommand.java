@@ -34,7 +34,7 @@ import frc.robot.subsystems.LimelightGlobalPose.CommandSwerveDrivetrain;
 public class PositionPIDCommand extends Command {
   /** Creates a new PositionPIDCommand. */
   private CommandSwerveDrivetrain m_swerveSubsystem;
-  private AlignToReef m_alignToReef;
+  private DriveToPose m_driveToPose;
 
   private static SwerveRequest.ApplyRobotSpeeds m_swerveRequest = new ApplyRobotSpeeds();
 
@@ -47,14 +47,14 @@ public class PositionPIDCommand extends Command {
 
   private final Debouncer endTriggerDebouncer = new Debouncer(0.04);
 
-  private PositionPIDCommand(CommandSwerveDrivetrain swerveSubsystem, Pose2d targetPose, AlignToReef alignToReef) {
+  private PositionPIDCommand(CommandSwerveDrivetrain swerveSubsystem, Pose2d targetPose, DriveToPose driveToPose) {
     m_swerveSubsystem = swerveSubsystem;
     m_targetPose = targetPose;
-    m_alignToReef = alignToReef;
+    m_driveToPose = driveToPose;
 
   }
 
-  public static Command generateCommand(CommandSwerveDrivetrain swerveSubsystem, Pose2d targetPose, Time timeout, AlignToReef kAlignToReef) {
+  public static Command generateCommand(CommandSwerveDrivetrain swerveSubsystem, Pose2d targetPose, Time timeout, DriveToPose kAlignToReef) {
     return new PositionPIDCommand(swerveSubsystem, targetPose, kAlignToReef)
         .withTimeout(timeout)
         .beforeStarting(kAlignToReef.setAutoAdjustActive(true))

@@ -43,7 +43,7 @@ import frc.robot.subsystems.LimelightGlobalPose.CommandSwerveDrivetrain;
  * 
  */
 
-public class AlignToReef extends Command {
+public class DriveToPose extends Command {
   /** Creates a new AlignToReef. */
 
   //Subsystems
@@ -58,7 +58,7 @@ public class AlignToReef extends Command {
   
 
 
-  public AlignToReef(CommandSwerveDrivetrain swerveSubsystem) {
+  public DriveToPose(CommandSwerveDrivetrain swerveSubsystem) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_swerveSubsystem = swerveSubsystem;
 
@@ -92,8 +92,6 @@ public class AlignToReef extends Command {
 
 
     path.preventFlipping = true;
-    
-  
   
     m_targetPose = waypoint;
 
@@ -105,8 +103,6 @@ public class AlignToReef extends Command {
 
 
             .alongWith(
-
-
                     Commands.waitUntil(
                                       ()-> m_swerveSubsystem.getState().Pose.getTranslation().getDistance(waypoints.get(1).anchor()) < 1)
                   
@@ -154,12 +150,13 @@ public class AlignToReef extends Command {
     return new Rotation2d(cs.vxMetersPerSecond, cs.vyMetersPerSecond);
   }
 
+
+
+
   public Command driveToPose(Pose2d targetPose){
     return Commands.defer(()-> {
       return getPathFromWaypoint(targetPose);
-    }, Set.of());
-
-    
+    }, Set.of()); 
   }
 
 
