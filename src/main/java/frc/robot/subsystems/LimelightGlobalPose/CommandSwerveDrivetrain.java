@@ -46,7 +46,7 @@ public class CommandSwerveDrivetrain extends TunerSwerveDrivetrain implements Su
     boolean useLLmt1 = true;
     boolean useLLmt2 = true;
 
-    private Vision m_visionSubsystem = new Vision(this, "limelight-reef");
+    private Vision m_visionSubsystem = new Vision(this, "limelight");
 
 
     private static final double kSimLoopPeriod = 0.005; // 5 ms
