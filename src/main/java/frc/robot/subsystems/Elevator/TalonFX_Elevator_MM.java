@@ -104,7 +104,7 @@ public class TalonFX_Elevator_MM extends SubsystemBase {
      * Method to stop the elevator
      */
     public void elevatorStop() {
-      elevatorLeftLeaderMotor.set(0);
+      elevatorLeftLeaderMotor.stopMotor();
       elevatorRightFollowerMotor.setControl(elevatorFollower);
     }
 

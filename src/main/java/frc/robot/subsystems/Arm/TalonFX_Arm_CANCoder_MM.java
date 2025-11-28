@@ -115,7 +115,7 @@ public class TalonFX_Arm_CANCoder_MM extends SubsystemBase {
    * Method to stop the arm
    */
   public void armStop() {
-    armMotor.set(0);
+    armMotor.stopMotor();;
   }
 
   /**

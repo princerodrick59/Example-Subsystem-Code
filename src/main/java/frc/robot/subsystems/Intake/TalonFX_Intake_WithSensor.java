@@ -65,7 +65,7 @@ public class TalonFX_Intake_WithSensor extends SubsystemBase {
    * Method to stop the rollers
    */
   public void rollersStop(){
-    rollerMotor.set(0); // Stop the rollers
+    rollerMotor.stopMotor(); // Stop the rollers
   }
 
   
