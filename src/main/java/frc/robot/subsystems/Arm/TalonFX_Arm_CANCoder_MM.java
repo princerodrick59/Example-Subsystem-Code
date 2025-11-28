@@ -225,14 +225,6 @@ public class TalonFX_Arm_CANCoder_MM extends SubsystemBase {
     return armMotor.getStatorCurrent().getValueAsDouble();
   }
 
-  /**
-   * Method to get the temperature of the arm motor
-   * @return double temperature in Celsius
-   */
-  @AutoLogOutput
-  public double getArmTemperature(){
-    return armMotor.getDeviceTemp().getValueAsDouble();
-  }
 
   /**
    * Method to get the voltage of the arm motor

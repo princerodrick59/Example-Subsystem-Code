@@ -202,14 +202,6 @@ public class TalonFX_Elevator_MM extends SubsystemBase {
     return elevatorLeftLeaderMotor.getStatorCurrent().getValueAsDouble();
   }
 
-  /**
-   * Method to get the temperature of the elevator motors
-   * @return double temperature in Celsius
-   */
-  @AutoLogOutput
-  public double getElevatorTemperature(){
-    return elevatorLeftLeaderMotor.getDeviceTemp().getValueAsDouble();
-  }
 
   /**
    * Method to get the voltage of the elevator motors

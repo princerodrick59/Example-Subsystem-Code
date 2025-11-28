@@ -105,14 +105,6 @@ public class TalonFX_Intake_WithSensor extends SubsystemBase {
     return rollerMotor.getStatorCurrent().getValueAsDouble();
   }
 
-  /**
-   * Method to get the temperature of the rollers motor
-   * @return double temperature in Celsius
-   */
-  @AutoLogOutput
-  public double getRollersTemperature(){
-    return rollerMotor.getDeviceTemp().getValueAsDouble();
-  }
 
   /**
    * Method to get the voltage being applied to the rollers motor
