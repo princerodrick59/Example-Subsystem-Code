@@ -6,11 +6,9 @@ package frc.robot.commands.AutoAlign;
 
 
 
-import static edu.wpi.first.units.Units.Degrees;
 import static edu.wpi.first.units.Units.Inches;
 import static edu.wpi.first.units.Units.Meters;
 
-import org.littletonrobotics.junction.AutoLog;
 import org.littletonrobotics.junction.Logger;
 
 import com.ctre.phoenix6.swerve.SwerveRequest;
@@ -27,14 +25,12 @@ import edu.wpi.first.math.kinematics.ChassisSpeeds;
 import edu.wpi.first.units.measure.Time;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.Constants;
 import frc.robot.subsystems.LimelightGlobalPose.CommandSwerveDrivetrain;
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 public class PositionPIDCommand extends Command {
   /** Creates a new PositionPIDCommand. */
   private CommandSwerveDrivetrain m_swerveSubsystem;
-  private DriveToPose m_driveToPose;
 
   private static SwerveRequest.ApplyRobotSpeeds m_swerveRequest = new ApplyRobotSpeeds();
 
@@ -50,7 +46,6 @@ public class PositionPIDCommand extends Command {
   private PositionPIDCommand(CommandSwerveDrivetrain swerveSubsystem, Pose2d targetPose, DriveToPose driveToPose) {
     m_swerveSubsystem = swerveSubsystem;
     m_targetPose = targetPose;
-    m_driveToPose = driveToPose;
 
   }
 
@@ -90,7 +85,6 @@ public class PositionPIDCommand extends Command {
   public void end(boolean interrupted) {
       timer.stop();
 
-      Pose2d diffPose2d = m_swerveSubsystem.getState().Pose.relativeTo(m_targetPose);
 
       // System.out.println("Adjustments to alignment took: " + timer.get() + " seconds and interrupted = " + interrupted
   }
